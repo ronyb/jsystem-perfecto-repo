@@ -5,9 +5,9 @@ This repository consists of the following Java Maven projects:
 * **jsystem-perfecto-plugin** - Adding this plugin to JSystem allows adding Perfecto Mobile's tab inside the JSysten runner GUI. This plugin depends on the **perfecto-mobile-browser** JAR that launches a web browser that logs-in to Perfecto's Mobile Cloud.
 
 ##perfecto-mobile-browser
+![Perfecto Mobile "Lab" and "Dashboard" browsers](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/perfecto_browsers.png)
 
 ###Description and use
-![Perfecto Mobile "Lab" and "Dashboard" browsers](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/perfecto_browsers.png)
 
 ###How to build
 
