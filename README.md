@@ -1,5 +1,4 @@
 # jsystem-perfecto-plugin
-Plugin for integration between JSystem and Perfecto Mobile's "Mobile Cloud"
 
 This repository consists of the following Java Maven projects:
 * **perfecto-mobile-browser** - A standalone Java application, implementing an SWT web browser which allows interacting with Perfecto Mobile's "Mobile Cloud" website.
@@ -8,6 +7,7 @@ This repository consists of the following Java Maven projects:
 ##perfecto-mobile-browser
 
 ###Description and use
+![Perfecto Mobile "Lab" and "Dashboard" browsers](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/perfecto_browsers.png)
 
 ###How to build
 
