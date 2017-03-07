@@ -15,6 +15,7 @@ This repository consists of the following Java Maven projects:
 
 
 ##jsystem-perfecto-plugin
+![JSystem Perfecto Mobile Tab](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/jsystem_perfecto_tab.png)
 
 ###Description and use
 
