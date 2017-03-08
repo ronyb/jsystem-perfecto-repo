@@ -1,12 +1,12 @@
 package org.jsystem.perfecto.browser;
 
 import org.jsystem.perfecto.PerfectoProperties;
-import org.jsystem.perfecto.browser.functions.LabBrowserFunction;
+import org.jsystem.perfecto.browser.functions.PerfectoLabBrowserFunction;
 
 public class PerfectoLabBrowser extends PerfectoBrowser {
     
 	public PerfectoLabBrowser() {
-		this.perfectoUrl = "https://" + PerfectoProperties.getCloud() + "/nexperience/selenium.jsp?container=eclipse";
+		this.perfectoUrl = "https://" + PerfectoProperties.getHost() + "/nexperience/selenium.jsp?container=eclipse";
 		this.className = "PerfectoLabBrowser";
 		this.windowTitle = "Perfecto Lab";
 	}
@@ -14,15 +14,15 @@ public class PerfectoLabBrowser extends PerfectoBrowser {
     @Override
 	protected void initBrowser() {
 		
-        new LabBrowserFunction(browser, "recordLineCallback");
-        new LabBrowserFunction(browser, "insertLineCallback");
-        new LabBrowserFunction(browser, "readyToRunPluginCallback");
-        new LabBrowserFunction(browser, "logOutPluginCallback");
-        new LabBrowserFunction(browser, "isInEclipsePluginCallback");
-        new LabBrowserFunction(browser, "getContainerJspNameCallback");
-        new LabBrowserFunction(browser, "checkVersionCompatibilityCallback");
-        new LabBrowserFunction(browser, "openLinkInBrowserCallback");
-		new LabBrowserFunction(browser, "startRemoteAccessCallback");
-        new LabBrowserFunction(browser, "getApplicationContainerConfigurationCallback");
+        new PerfectoLabBrowserFunction(browser, "recordLineCallback");
+        new PerfectoLabBrowserFunction(browser, "insertLineCallback");
+        new PerfectoLabBrowserFunction(browser, "readyToRunPluginCallback");
+        new PerfectoLabBrowserFunction(browser, "logOutPluginCallback");
+        new PerfectoLabBrowserFunction(browser, "isInEclipsePluginCallback");
+        new PerfectoLabBrowserFunction(browser, "getContainerJspNameCallback");
+        new PerfectoLabBrowserFunction(browser, "checkVersionCompatibilityCallback");
+        new PerfectoLabBrowserFunction(browser, "openLinkInBrowserCallback");
+		new PerfectoLabBrowserFunction(browser, "startRemoteAccessCallback");
+        new PerfectoLabBrowserFunction(browser, "getApplicationContainerConfigurationCallback");
 	}
 }

@@ -6,8 +6,8 @@ import java.util.concurrent.Executors;
 
 import org.jsystem.perfecto.browser.PerfectoDashboardBrowser;
 import org.jsystem.perfecto.browser.PerfectoLabBrowser;
-import org.jsystem.perfecto.localSocket.PerfectoDashboardServer;
-import org.jsystem.perfecto.localSocket.PerfectoLabServer;
+import org.jsystem.perfecto.connector.PerfectoDashboardConnectorServer;
+import org.jsystem.perfecto.connector.PerfectoLabConnectorServer;
 
 public class Main {
 
@@ -46,10 +46,10 @@ public class Main {
 	private static void launchPerfectoLab() throws InterruptedException {
 		
 		try {
-			PerfectoLabServer.startServer(PerfectoProperties.getCloud());
+			PerfectoLabConnectorServer.startServer(PerfectoProperties.getHost());
 		}
 		catch (IOException e) {
-			print("Perfecto Lab is already running. (TCP port " + PerfectoLabServer.getServerPort() + " is in use).");
+			print("Perfecto Lab is already running. (TCP port " + PerfectoLabConnectorServer.getServerPort() + " is in use).");
 			return;
 		}
 		
@@ -63,10 +63,10 @@ public class Main {
 	private static void launchPerfectoDashboard() throws InterruptedException {
 		
 		try {
-			PerfectoDashboardServer.startServer(PerfectoProperties.getCloud());
+			PerfectoDashboardConnectorServer.startServer(PerfectoProperties.getHost());
 		}
 		catch (IOException e) {
-			print("Perfecto Dashboard is already running. (TCP port " + PerfectoDashboardServer.getServerPort() + " is in use).");
+			print("Perfecto Dashboard is already running. (TCP port " + PerfectoDashboardConnectorServer.getServerPort() + " is in use).");
 			return;
 		}
 		

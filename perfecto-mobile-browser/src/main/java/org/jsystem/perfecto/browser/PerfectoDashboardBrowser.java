@@ -1,20 +1,20 @@
 package org.jsystem.perfecto.browser;
 
 import org.jsystem.perfecto.PerfectoProperties;
-import org.jsystem.perfecto.browser.functions.DashboardBrowserFunction;
+import org.jsystem.perfecto.browser.functions.PerfectoDashboardBrowserFunction;
 
 public class PerfectoDashboardBrowser extends PerfectoBrowser {
 
 	public PerfectoDashboardBrowser() {
-		this.perfectoUrl = "https://" + PerfectoProperties.getCloud() + "/nexperience/dashboard.jsp";
+		this.perfectoUrl = "https://" + PerfectoProperties.getHost() + "/nexperience/dashboard.jsp";
 		this.className = "PerfectoDashboardBrowser";
 		this.windowTitle = "Perfecto Dashboard";
 	}
 	
 	@Override
 	protected void initBrowser() {
-		new DashboardBrowserFunction(browser, "isInEclipsePluginCallback");
-		new DashboardBrowserFunction(browser, "getContainerJspNameCallback");
-		new DashboardBrowserFunction(browser, "openLinkInBrowserCallback");
+		new PerfectoDashboardBrowserFunction(browser, "isInEclipsePluginCallback");
+		new PerfectoDashboardBrowserFunction(browser, "getContainerJspNameCallback");
+		new PerfectoDashboardBrowserFunction(browser, "openLinkInBrowserCallback");
 	}
 }

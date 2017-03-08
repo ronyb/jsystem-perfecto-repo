@@ -13,8 +13,8 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.jsystem.perfecto.PerfectoProperties;
-import org.jsystem.perfecto.localSocket.PerfectoDashboardServer;
-import org.jsystem.perfecto.localSocket.PerfectoLabServer;
+import org.jsystem.perfecto.connector.PerfectoDashboardConnectorServer;
+import org.jsystem.perfecto.connector.PerfectoLabConnectorServer;
 
 public abstract class PerfectoBrowser implements Runnable {
 
@@ -44,14 +44,14 @@ public abstract class PerfectoBrowser implements Runnable {
 		shell.setLayout(new GridLayout());
 
 		shell.addListener(SWT.Close, new Listener() {
-			
+
 			@Override
 			public void handleEvent(Event event) {
 				if (className.equals("PerfectoLabBrowser")) {
-					PerfectoLabServer.stopServer();
+					PerfectoLabConnectorServer.stopServer();
 				}
 				else if (className.equals("PerfectoDashboardBrowser")) {
-					PerfectoDashboardServer.stopServer();
+					PerfectoDashboardConnectorServer.stopServer();
 				}
 			}
 		});
@@ -88,7 +88,7 @@ public abstract class PerfectoBrowser implements Runnable {
 	public synchronized void doExternalLogin() {
 
 		if (!display.isDisposed()) {
-			
+
 			display.asyncExec(new Runnable() {
 
 				@Override
@@ -96,6 +96,21 @@ public abstract class PerfectoBrowser implements Runnable {
 
 					String currentUrl = browser.getUrl();
 					print("Current URL: " + currentUrl);
+
+					int attempts = 1;
+					while (currentUrl.equals("about:blank") && attempts < 3) {
+
+						print("waiting 2 more seconds");
+						try {
+							Thread.sleep(2000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+
+						currentUrl = browser.getUrl();
+						print("Current URL: " + currentUrl);
+						attempts++;
+					}
 
 					if (currentUrl.contains("np-cas/login") || currentUrl.contains("login.jsp")) {
 

@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class PerfectoProperties {
 
-	private static String cloud = "mobilecloud.perfectomobile.com";
+	private static String host;
 	private static String username;
 	private static String password;
 
@@ -24,13 +24,13 @@ public class PerfectoProperties {
 			return;
 		}
 
-		cloud = prop.getProperty("perfectoCloud");
+		host = prop.getProperty("perfectoHost");
 		username = prop.getProperty("perfectoUsername");
 		password = prop.getProperty("perfectoPassword");
 	}
 
-	public static String getCloud() {
-		return cloud;
+	public static String getHost() {
+		return host;
 	}
 
 	public static String getUsername() {
