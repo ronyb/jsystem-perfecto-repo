@@ -32,9 +32,8 @@ When launched, the application runs a TCP server, listening on port 3456. The se
 `getCould` - returns the the current Perfeco cloud URL, as was configured in the `perfecto.properties` file<br>
 `getCloudAndExecutionId` - returns both the cloud URL and the current executionId
 
-###How to build
-
-###How to deploy
+###How to build and deploy
+This is a Maven project. To build it, run the following command line: `mvn clean install` from the project root directory.
 
 
 ##jsystem-perfecto-plugin
