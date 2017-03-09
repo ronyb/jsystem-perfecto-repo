@@ -32,8 +32,15 @@ When launched, the application runs a TCP server, listening on port 3456. The se
 `getHost` - returns the the current Perfeco cloud host, as was configured in the `perfecto.properties` file<br>
 
 ###How to build and deploy
-This is a Maven project. To build it, run the following command line: `mvn clean install` from the project root directory.
+This is a Maven project. To build it, run the following command line: `mvn clean install` from the project root directory. After a successful build, all artifacts will be found insdie the `target` directory at the project's root.
 
+The important artifacts are:
+* `perfecto-mobile-browser-<version>.jar`
+* `perfecto.properties`
+* `perfecto_icon.png`
+* `lib` (directory)
+
+To make the **perfecto-mobile-browser** available from the JSystem Perfecto Mobile plugin tab, copy all the artifacts listed above into a new directory named `perfecto`, and put this directory at the root of your JSystem runner.
 
 #jsystem-perfecto-plugin
 ![JSystem Perfecto Mobile Tab](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/jsystem_perfecto_tab.png)
