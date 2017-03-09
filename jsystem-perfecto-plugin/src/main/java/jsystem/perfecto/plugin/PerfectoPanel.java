@@ -220,7 +220,7 @@ public class PerfectoPanel extends javax.swing.JPanel {
 				// caught expected exception - because the Lab is still not running - will start it now
 				if (new File(perfectoMobileBrowserJarLocation).exists()) {
 					try {
-						Runtime.getRuntime().exec("java -jar " + perfectoMobileBrowserJarLocation + " lab");
+						Runtime.getRuntime().exec("java -XstartOnFirstThread -jar " + perfectoMobileBrowserJarLocation + " lab");
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -250,7 +250,7 @@ public class PerfectoPanel extends javax.swing.JPanel {
 				// caught expected exception - because the Dashboard is still not running - will start it now
 				if (new File(perfectoMobileBrowserJarLocation).exists()) {
 					try {
-						Runtime.getRuntime().exec("java -jar " + perfectoMobileBrowserJarLocation + " dashboard");
+						Runtime.getRuntime().exec("java -XstartOnFirstThread -jar " + perfectoMobileBrowserJarLocation + " dashboard");
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
