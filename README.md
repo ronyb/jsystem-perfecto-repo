@@ -59,8 +59,17 @@ The only important build artifact is the `jsystem-perfecto-plugin-<version>.jar`
 
 To add the plugin to JSystem, copy the `jsystem-perfecto-plugin-<version>.jar` file into the `lib` directory inside your JSystem runner direcotry.
 
-To enable the "Perfecto Mobile" tab inside JSystem, follow these steps:
+To enable the "Perfecto Mobile" tab inside JSystem, follow these steps, inside your JSystem runner:
 
+1. Open "Tools" menu
+2. Select "JSystem Properties"
+3. Open the "New Features" tab
+4. Click the "..." button at the "add.generic.tabs" line
+5. Wait for "add.generic.tabs" window to show
+6. Select "jsystem.perfecto.plugin.PerfectoTab" (if there are other tabs that you want to retain, hold the Ctrl key while selecting).
+7. Click "Set" button and finally "Save" button
+
+![How to add the "Perfecto Mobile" tab to JSystem] (https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/add_jsystem_perfecto_tab.png)
 
 #jsystem-perfecto-infra
 
