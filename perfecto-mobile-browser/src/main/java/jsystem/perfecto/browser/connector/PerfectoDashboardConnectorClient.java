@@ -1,20 +1,16 @@
-package org.jsystem.perfecto.connector;
+package jsystem.perfecto.browser.connector;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class PerfectoLabConnectorClient {
+public class PerfectoDashboardConnectorClient {
 
-	private static final int SERVER_PORT = 3456;
+	private static final int SERVER_PORT = 3457;
 
 	public static String getHost() throws Exception {
 		return requestToServer("getHost");
-	}
-	
-	public static String getExecutionId() throws Exception {
-		return requestToServer("getExecutionId");
 	}
 	
 	private static String requestToServer(String request) throws Exception {

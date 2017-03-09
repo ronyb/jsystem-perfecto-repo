@@ -1,4 +1,4 @@
-package org.jsystem.perfecto.browser.functions;
+package jsystem.perfecto.browser;
 
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.browser.BrowserFunction;
@@ -31,23 +31,10 @@ public class PerfectoDashboardBrowserFunction extends BrowserFunction {
 		}
 		
 		else if (functionName == "openLinkInBrowserCallback") {
-			openLinkInBrowserHandler(args);
+			browser.setUrl((String) args[0]);
 		}
 		
 		return "";
-	}
-	
-	private void openLinkInBrowserHandler(Object[] args) {
-		String linkToOpen = (String)args[0];
-		try {
-			browser.setUrl(linkToOpen);
-			//MobileCloudBrowserView viewPart =  (MobileCloudBrowserView)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(MobileCloudBrowserView.ID);
-			//viewPart.loadURL(linkToOpen);
-		}
-		catch (Exception e) {
-			System.out.print(e);
-			//printToDebugConsole("openLinkInBrowserHandler(): " + e.toString());
-		}
 	}
 	
 	private void print(String str) {

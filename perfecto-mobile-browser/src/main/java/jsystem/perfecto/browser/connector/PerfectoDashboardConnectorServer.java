@@ -1,4 +1,4 @@
-package org.jsystem.perfecto.connector;
+package jsystem.perfecto.browser.connector;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

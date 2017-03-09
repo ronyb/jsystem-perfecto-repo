@@ -1,8 +1,9 @@
-package org.jsystem.perfecto.browser.functions;
+package jsystem.perfecto.browser;
 
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.browser.BrowserFunction;
-import org.jsystem.perfecto.connector.PerfectoLabConnectorServer;
+
+import jsystem.perfecto.browser.connector.PerfectoLabConnectorServer;
 
 public class PerfectoLabBrowserFunction extends BrowserFunction {
 
@@ -52,7 +53,7 @@ public class PerfectoLabBrowserFunction extends BrowserFunction {
 		}
 
 		else if (functionName == "openLinkInBrowserCallback") {
-			openLinkInBrowserHandler(args);
+			browser.setUrl((String) args[0]);
 		}
 
 		else if (functionName == "startRemoteAccessCallback") {
@@ -85,9 +86,8 @@ public class PerfectoLabBrowserFunction extends BrowserFunction {
 		return (webAppVersion >= REQUIRED_WEB_APP_VERSION && COMPATIBILITY_VERSION >= requiredPluginVersion);
 	}
 
-
-
 	private void startRemoteAccessHandler(Object[] args) {
+		
 		String url = (String)args[0];
 
 		try {
@@ -98,16 +98,6 @@ public class PerfectoLabBrowserFunction extends BrowserFunction {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return;
-		}
-	}
-
-	private void openLinkInBrowserHandler(Object[] args) {
-		String linkToOpen = (String)args[0];
-		try {
-			browser.setUrl(linkToOpen);
-		}
-		catch (Exception e) {
-			System.out.print(e);
 		}
 	}
 

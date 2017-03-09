@@ -220,7 +220,16 @@ public class PerfectoPanel extends javax.swing.JPanel {
 				// caught expected exception - because the Lab is still not running - will start it now
 				if (new File(perfectoMobileBrowserJarLocation).exists()) {
 					try {
-						Runtime.getRuntime().exec("java -XstartOnFirstThread -jar " + perfectoMobileBrowserJarLocation + " lab");
+						
+						String launchCommand = null;
+						if (runningOnMacOS()) {
+							launchCommand = "java -XstartOnFirstThread -jar " + perfectoMobileBrowserJarLocation + " lab";
+						}
+						else {
+							launchCommand = "java -jar " + perfectoMobileBrowserJarLocation + " lab";
+						}
+						
+						Runtime.getRuntime().exec(launchCommand);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -250,7 +259,15 @@ public class PerfectoPanel extends javax.swing.JPanel {
 				// caught expected exception - because the Dashboard is still not running - will start it now
 				if (new File(perfectoMobileBrowserJarLocation).exists()) {
 					try {
-						Runtime.getRuntime().exec("java -XstartOnFirstThread -jar " + perfectoMobileBrowserJarLocation + " dashboard");
+						String launchCommand = null;
+						if (runningOnMacOS()) {
+							launchCommand = "java -XstartOnFirstThread -jar " + perfectoMobileBrowserJarLocation + " dashboard";
+						}
+						else {
+							launchCommand = "java -jar " + perfectoMobileBrowserJarLocation + " dashboard";
+						}
+						
+						Runtime.getRuntime().exec(launchCommand);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -297,6 +314,10 @@ public class PerfectoPanel extends javax.swing.JPanel {
 		}
 		
 		return true;
+	}
+	
+	private boolean runningOnMacOS() {
+		return System.getProperty("os.name").toLowerCase().contains("mac");
 	}
 	
 	private void showWarningDialog(String title, String message) {

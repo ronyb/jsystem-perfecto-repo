@@ -1,4 +1,4 @@
-package org.jsystem.perfecto;
+package jsystem.perfecto.browser;
 
 import java.io.File;
 import java.io.FileInputStream;
