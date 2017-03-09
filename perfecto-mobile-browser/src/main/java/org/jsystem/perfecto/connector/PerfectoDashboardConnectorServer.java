@@ -111,12 +111,12 @@ public class PerfectoDashboardConnectorServer implements Runnable {
 		System.out.println("[PerfectoDashboardServer]: " + str);
 	}
 	
-	public static String getPerfectoCloud() {
+	public static String getPerfectoHost() {
 		return host;
 	}
 
-	public static void setPerfectoCloud(String perfectoCloud) {
-		PerfectoDashboardConnectorServer.host = perfectoCloud;
+	public static void setPerfectoHost(String perfectoHost) {
+		PerfectoDashboardConnectorServer.host = perfectoHost;
 	}
 
 	public static int getServerPort() {

@@ -5,12 +5,12 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class PerfectoDashboardClient {
+public class PerfectoDashboardConnectorClient {
 
 	private static final int SERVER_PORT = 3457;
 
-	public static String getCloud() throws Exception {
-		return requestToServer("getCloud");
+	public static String getHost() throws Exception {
+		return requestToServer("getHost");
 	}
 	
 	private static String requestToServer(String request) throws Exception {

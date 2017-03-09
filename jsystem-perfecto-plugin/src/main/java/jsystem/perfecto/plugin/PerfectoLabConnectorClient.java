@@ -5,20 +5,16 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class PerfectoLabClient {
+public class PerfectoLabConnectorClient {
 
 	private static final int SERVER_PORT = 3456;
 
-	public static String getCloud() throws Exception {
-		return requestToServer("getCloud");
+	public static String getHost() throws Exception {
+		return requestToServer("getHost");
 	}
 	
 	public static String getExecutionId() throws Exception {
 		return requestToServer("getExecutionId");
-	}
-	
-	public static String getCloudAndExecutionId() throws Exception {
-		return requestToServer("getCloudAndExecutionId");
 	}
 	
 	private static String requestToServer(String request) throws Exception {

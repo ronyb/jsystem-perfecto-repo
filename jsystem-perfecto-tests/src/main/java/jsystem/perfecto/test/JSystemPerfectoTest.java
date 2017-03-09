@@ -17,7 +17,7 @@ import junit.framework.SystemTestCase4;
  */
 public abstract class JSystemPerfectoTest extends SystemTestCase4 {
 
-	// Perfecto Cloud properties - loaded from perfecto/perfecto.properties file
+	// Perfecto Mobile Cloud properties - loaded from perfecto/perfecto.properties file
 	protected String perfectoHost;
 	protected String perfectoUsername;
 	protected String perfectoPassword;

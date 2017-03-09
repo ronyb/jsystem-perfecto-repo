@@ -210,7 +210,7 @@ public class PerfectoPanel extends javax.swing.JPanel {
 			
 			try {
 				// expecting an exception to be thrown here if Lab is still not running
-				PerfectoLabClient.getCloud();
+				PerfectoLabConnectorClient.getHost();
 				
 				// showing the warning message because the exception wasn't thrown
 				showWarningDialog("Perfecto Lab is already running", "Can't open more than one instance of Perfecto Lab");
@@ -240,7 +240,7 @@ public class PerfectoPanel extends javax.swing.JPanel {
 			
 			try {
 				// expecting an exception to be thrown here if Dashboard is still not running
-				PerfectoDashboardClient.getCloud();
+				PerfectoDashboardConnectorClient.getHost();
 				
 				// showing the warning message because the exception wasn't thrown
 				showWarningDialog("Perfecto Dashboard is already running", "Can't open more than one instance of Perfecto Dashboard");
@@ -284,7 +284,7 @@ public class PerfectoPanel extends javax.swing.JPanel {
 	private boolean validatePerfectoProperties() {
 		
 		if (hostTextField.getText().trim().equals("")) {
-			showWarningDialog("Can't launch Perfecto Lab/Dashboard", "Cloud field can't be empty");
+			showWarningDialog("Can't launch Perfecto Lab/Dashboard", "Host field can't be empty");
 			return false;
 		}
 		else if (usernameTextField.getText().trim().equals("")) {
