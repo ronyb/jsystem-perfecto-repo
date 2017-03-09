@@ -46,6 +46,7 @@ To make the **perfecto-mobile-browser** available from the JSystem Perfecto Mobi
 ![JSystem Perfecto Mobile Tab](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/jsystem_perfecto_tab.png)
 
 ###Description and use
+
 This is a plugin for the JSystem runner, which allows adding a "Perfecto Mobile" tab to the JSystem runner GUI. Once installed, the Perfecto tab allows the user to configure the Perfecto Cloud properties (host, username, password), and to launch the **perfecto-mobile-browser** in "Lab" and/or "Dashboard" views, by clicking the appropreate button.
 
 Before launching the **perfecto-mobile-browser**, the application validates that all Perfecto cloud properties fields are not empty.
@@ -53,14 +54,27 @@ Before launching the **perfecto-mobile-browser**, the application validates that
 When clicking the "Open Perfecto Lab" and "Open Perfecto Dashboard" buttons, the application first checks if there isn't an instance of one of these already running. The plugin doesn't allow launching more than one instance of "Perfecto Lab" and "Perfecto Dashboard" each.
 
 ###How to build and depoly
+
+***Noet:*** This plugin will function properly only if the **perfecto** directory with the **perfecto-mobile-browser** was placed at the root of your JSystem runner (see "How to build and deploy" for **pefecto-mobile-browser** above).
+
 This is a Maven project. To build it, run the following command line: `mvn clean install` from the project root directory. After a successful build, all artifacts will be found inside the `target` directory at the project's root.
 
 The only important build artifact is the `jsystem-perfecto-plugin-<version>.jar` file.
 
 To add the plugin to JSystem, copy the `jsystem-perfecto-plugin-<version>.jar` file into the `lib` directory inside your JSystem runner direcotry.
 
-To enable the "Perfecto Mobile" tab inside JSystem, follow these steps:
+To enable the "Perfecto Mobile" tab inside JSystem, follow these steps, inside your JSystem runner:
 
+1. Open "Tools" menu
+2. Select "JSystem Properties"
+3. Open the "New Features" tab
+4. Click the "..." button at the "add.generic.tabs" line
+5. Wait for "add.generic.tabs" window to show
+6. Select "jsystem.perfecto.plugin.PerfectoTab" (if there are other tabs that you want to retain, hold the Ctrl key while selecting).
+7. Click "Set" button and then "Save" button
+8. Allow JSystem to restart. After the restart you should see the "Perfecto Mobile" tab.
+
+![How to add the "Perfecto Mobile" tab to JSystem] (https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/add_jsystem_perfecto_tab.png)
 
 #jsystem-perfecto-infra
 
