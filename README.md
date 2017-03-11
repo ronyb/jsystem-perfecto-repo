@@ -15,6 +15,10 @@ This is a standalone Java GUI application, based on the [SWT library](https://ww
 
 To launch the application, double click on the `perfecto-mobile-browser-<version>.jar` file, or launch it from the command line by typing: `java -jar perfecto-mobile-browser-<version>.jar`.
 
+***Note:*** On Mac OS X, to lauch the application you need to provide an additional VM arument - `-XstartOnFirstThread`, as follows:
+
+`java -XstartOnFirstThread -jar perfecto-mobile-browser-<version>.jar`
+
 When launching the application without providing command line arguments, the browser will navigate to the "Perfecto Lab" view by default.
 
 If you wish to launch the "Perfecto Dashboard" view, you need to add the `dashbaord` command line argument, as follows: 
