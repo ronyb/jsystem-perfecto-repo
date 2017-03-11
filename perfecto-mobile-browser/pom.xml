@@ -21,7 +21,7 @@
 
 	<dependencies>
 
-	<!-- org.eclipse.swt - uncomment dependency according to your OS: Windows 32-bit / Windows 64-bit / Mac OS X  -->
+	<!-- org.eclipse.swt - uncomment dependency to match your OS: Windows 32-bit / Windows 64-bit / Mac OS X  -->
 
  		<!-- SWT for Windows 64-bit -->
 		<dependency>
@@ -31,7 +31,7 @@
 		</dependency>
 
 		<!-- SWT for Windows 32-bit -->
-		<!-- 
+		<!--
 		<dependency>
 			<groupId>org.eclipse.swt</groupId>
 			<artifactId>org.eclipse.swt.win32.win32.x86</artifactId>

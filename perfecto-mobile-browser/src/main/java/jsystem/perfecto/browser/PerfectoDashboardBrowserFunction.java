@@ -6,7 +6,6 @@ import org.eclipse.swt.browser.BrowserFunction;
 public class PerfectoDashboardBrowserFunction extends BrowserFunction {
 
 	private static final String DASHBOARD_URL = "dashboard.jsp?autoWatch=true&container=eclipse";
-	private static final String className = "DashboardBrowserFunction";
 	
 	private Browser browser = null;
 	private String functionName = null;
@@ -38,6 +37,6 @@ public class PerfectoDashboardBrowserFunction extends BrowserFunction {
 	}
 	
 	private void print(String str) {
-		System.out.println("[" + className + "]: " + str);
+		System.out.println("[PerfectoDashboardBrowserFunction]: " + str);
 	}
 }

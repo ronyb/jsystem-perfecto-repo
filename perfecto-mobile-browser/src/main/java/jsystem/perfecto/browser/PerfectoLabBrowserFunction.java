@@ -8,7 +8,6 @@ import jsystem.perfecto.browser.connector.PerfectoLabConnectorServer;
 public class PerfectoLabBrowserFunction extends BrowserFunction {
 
 	private static final String SELENIUM_URL = "selenium.jsp?container=eclipse";
-	private static final String className = "LabBrowserFunction";
 	
 	private static double COMPATIBILITY_VERSION = 7;
 	private static double REQUIRED_WEB_APP_VERSION = 6;
@@ -107,7 +106,7 @@ public class PerfectoLabBrowserFunction extends BrowserFunction {
 	}
 	
 	private void print(String str) {
-		System.out.println("[" + className + "]: " + str);
+		System.out.println("[PerfectoLabBrowserFunction]: " + str);
 	}
 	
 	/*

@@ -12,7 +12,6 @@ import java.util.concurrent.Executors;
 public class PerfectoLabConnectorServer implements Runnable {
 
 	private static final int SERVER_PORT = 3456;
-	private static final PerfectoLabConnectorServer INSTANCE = new PerfectoLabConnectorServer();
 
 	private static String host;
 	private static String executionId;
@@ -36,7 +35,7 @@ public class PerfectoLabConnectorServer implements Runnable {
 			print("Server is listening on TCP port " + SERVER_PORT);
 			
 			executorService = Executors.newSingleThreadExecutor();
-			executorService.submit(INSTANCE);
+			executorService.submit(new PerfectoLabConnectorServer());
 			executorService.shutdown();
 		}
 	}
@@ -111,7 +110,7 @@ public class PerfectoLabConnectorServer implements Runnable {
 	}
 	
 	private static void print(String str) {
-		System.out.println("[PerfectoLabServer]: " + str);
+		System.out.println("[PerfectoLabConnectorServer]: " + str);
 	}
 	
 	public static int getServerPort() {

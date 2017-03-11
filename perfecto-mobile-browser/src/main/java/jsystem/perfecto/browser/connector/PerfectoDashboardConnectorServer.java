@@ -12,7 +12,6 @@ import java.util.concurrent.Executors;
 public class PerfectoDashboardConnectorServer implements Runnable {
 
 	private static final int SERVER_PORT = 3457;
-	private static final PerfectoDashboardConnectorServer INSTANCE = new PerfectoDashboardConnectorServer();
 
 	private static String host;
 
@@ -36,7 +35,7 @@ public class PerfectoDashboardConnectorServer implements Runnable {
 			print("server is listening on TCP port " + SERVER_PORT);
 			
 			executorService = Executors.newSingleThreadExecutor();
-			executorService.submit(INSTANCE);
+			executorService.submit(new PerfectoDashboardConnectorServer());
 			executorService.shutdown();
 		}
 	}
@@ -108,7 +107,7 @@ public class PerfectoDashboardConnectorServer implements Runnable {
 	}
 	
 	private static void print(String str) {
-		System.out.println("[PerfectoDashboardServer]: " + str);
+		System.out.println("[PerfectoDashboardConnectorServer]: " + str);
 	}
 	
 	public static String getPerfectoHost() {

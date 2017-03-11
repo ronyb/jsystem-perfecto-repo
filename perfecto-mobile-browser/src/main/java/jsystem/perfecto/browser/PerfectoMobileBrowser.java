@@ -132,7 +132,7 @@ public class PerfectoMobileBrowser {
 		shell.open();
 		
 		startConnectorServer(labOrDashboard);
-
+		
 		while (!shell.isDisposed()) {
 			
 			if (!display.readAndDispatch()) {
@@ -178,13 +178,13 @@ public class PerfectoMobileBrowser {
 				PerfectoDashboardConnectorServer.startServer(PerfectoProperties.getHost());
 			}
 			catch (IOException e) {
-				print("Perfecto Dashboard is already running. (TCP port " + PerfectoDashboardConnectorServer.getServerPort() + " is in use).");
+				print("Terminating. Perfecto Dashboard is already running. (TCP port " + PerfectoDashboardConnectorServer.getServerPort() + " is in use).");
 				System.exit(1);
 			}
 		}
 	}
 	
 	private static void print(String str) {
-		System.out.println("[PerfectoBrowser]: " + str);
+		System.out.println("[PerfectoMobileBrowser]: " + str);
 	}
 }
