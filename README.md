@@ -15,12 +15,12 @@ This is a standalone Java GUI application, based on the [SWT library](https://ww
 
 To launch the application, double click on the `perfecto-mobile-browser-<version>.jar` file, or launch it from the command line by typing: `java -jar perfecto-mobile-browser-<version>.jar`.
 
-When launching the application without providing command line arguments, two browser windows are opened: "Perfecto Lab" and "Perfecto Dashboard" - each opens a different URL on the Perfecto Mobile Cloud.
+When launching the application without providing command line arguments, the browser will navigate to the "Perfecto Lab" view by default.
 
-It is possible to launch just one browser - "Perfecto Lab" or "Perfecto Dashboard" by adding a single command line argument:
+If you wish to launch the "Perfecto Dashboard" view, you need to add the `dashbaord` command line argument, as follows: 
 
-For "Perfecto Lab": `java -jar perfecto-mobile-browser-<version>.jar lab`<br/>
-For "Perfecto Dashboard": `java -jar perfecto-mobile-browser-<version>.jar dashboard`
+`java -jar perfecto-mobile-browser-<version>.jar dashboard` - will launch the "Perfecto Dashboard" view.<br>
+`java -jar perfecto-mobile-browser-<version>.jar lab` - will launch the "Perfecto Lab" view.
 
 ####perfecto.properties
 The application depends on the `perfecto.properties` file which should be located inside the same directory as the JAR file.
