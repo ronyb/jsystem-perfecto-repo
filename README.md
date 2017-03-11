@@ -1,3 +1,5 @@
+#jsystem-perfecto-repo
+
 This repository consists of the following Java Maven projects:
 * ***perfecto-mobile-browser*** - A standalone Java application, implementing a web browser which allows interacting with Perfecto Mobile's "Mobile Cloud" web application views - "Perfecto Lab" and "Perfecto Dashboard". The application also receives the  generated **executionId** after logging-in to the Perfecto app, stores it in memorey and serves it to other applications via a TCP socket.
 * ***jsystem-perfecto-plugin*** - Adding this plugin to JSystem allows adding Perfecto Mobile's tab inside the JSystem runner GUI. The plugin allows to configure the Perfecto cloud properties (host, username, password), and launching the **perfecto-mobile-browser** application.
