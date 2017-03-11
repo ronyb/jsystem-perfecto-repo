@@ -53,7 +53,7 @@ To make the **perfecto-mobile-browser** available from the JSystem Perfecto Mobi
 
 ###Description and use
 
-This is a plugin for the JSystem runner, which allows adding a "Perfecto Mobile" tab to the JSystem runner GUI. Once installed, the Perfecto tab allows the user to configure the Perfecto Cloud properties (host, username, password), and to launch the **perfecto-mobile-browser** in "Lab" and/or "Dashboard" views, by clicking the appropreate button.
+This is a plugin for the JSystem runner, which allows adding the "Perfecto Mobile" tab to the JSystem runner GUI. Once installed, the Perfecto tab allows the user to configure the Perfecto Cloud properties (host, username, password), and to launch the **perfecto-mobile-browser** in "Lab" and/or "Dashboard" views, by clicking the appropreate button.
 
 Before launching the **perfecto-mobile-browser**, the application validates that all Perfecto cloud properties fields are not empty.
 
@@ -85,8 +85,22 @@ To enable the "Perfecto Mobile" tab inside JSystem, follow these steps, inside y
 #jsystem-perfecto-infra
 
 ###Description and use
+This is a JSystem Maven project, created from the "jsystem-so-archetype" Maven archetype. This project contains all the dependencies and infrastructure classes needed for interacting with Perfecto Mobile's services from within a JSystem test class.
+
+The most important classes of the projects which you should get familiar with are:
+* `PerfectoLabConnectorClient` - This is a simple TCP socket client with two static methods which allow interacting with the currently running "Perfeco Lab" **perfecto-mobile-browser** instance, to query for the current **executionId** and current perfecto host, using the `getExecutionId` and `getHost` methods respectively.
+* `PerfectoLabUtils` - This class has convenience methods for interacting with Perfecto Mobile. The most important method that you should know about is `setExecutionIdCapability` which actually communicates with the "Perfecto Lab" browser to get the current executionId, and sets it inside the `DesiredCapabilities` object.
 
 ###How to build and depoly
+When creating a JSystem tests project that should interact with Perfecto Mobile's services, you need to add **jsystem-perfecto-infra** as a dependency in the tests project's `pom.xml` file:
+```xml
+<dependency>
+  <groupId>org.jsystem.perfecto</groupId>
+	<artifactId>jsystem-perfecto-infra</artifactId>
+	<version>1.0</version>
+</dependency>
+```
+To make the dependency available for the tests project, you must build it by calling `mvn clean install` before trying to build your tests project.
 
 #jsystem-perfecto-tests
 
