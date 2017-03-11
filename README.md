@@ -95,7 +95,7 @@ The most important classes of the projects which you should get familiar with ar
 When creating a JSystem tests project that should interact with Perfecto Mobile's services, you need to add **jsystem-perfecto-infra** as a dependency in the tests project's `pom.xml` file:
 ```xml
 <dependency>
-  <groupId>org.jsystem.perfecto</groupId>
+	<groupId>org.jsystem.perfecto</groupId>
 	<artifactId>jsystem-perfecto-infra</artifactId>
 	<version>1.0</version>
 </dependency>
