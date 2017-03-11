@@ -85,7 +85,7 @@ To enable the "Perfecto Mobile" tab inside JSystem, follow these steps, inside y
 #jsystem-perfecto-infra
 
 ###Description and use
-This is a JSystem Maven project, created from the "jsystem-so-archetype" Maven archetype. This project contains all the dependencies and infrastructure classes needed for interacting with Perfecto Mobile's services from within a JSystem test class.
+This is a JSystem SO project, created from the "jsystem-so-archetype" Maven archetype. This project contains all the dependencies and infrastructure classes needed for interacting with Perfecto Mobile's services from within a JSystem test class.
 
 The most important classes of the projects which you should get familiar with are:
 * `PerfectoLabConnectorClient` - This is a simple TCP socket client with two static methods which allow interacting with the currently running "Perfeco Lab" **perfecto-mobile-browser** instance, to query for the current **executionId** and current perfecto host, using the `getExecutionId` and `getHost` methods respectively.
@@ -105,5 +105,15 @@ To make the dependency available for the tests project, you must build it by cal
 #jsystem-perfecto-tests
 
 ###Description and use
+This is a sample JSystem Tests project, created from the "jsystem-tests-archetype" Maven archetype. This project depends on the **jsystem-perfecto-infra** project, and exemplifies how to implement a JSystem test which initiates the `DesiredCapabilities` with the current **executionId** which is read from the currently runnning "Perfecto Lab" **perfecto-mobile-browser**.
+
+The main functionality can be seen in the `JSystemPerfectoTest` abstract test class, which initiates all Perfecto Mobile parameters in the `@Before` method.
+
+The actual test demonstration is done in the `JSystemPerfectoTestDemo` class which extends `JSystemPerfectoTest`.
+
+***Note:*** The JSystem test demonstrated in in this class requires for a running instance of the "Perfecto Lab" **perfecto-mobile-browser** application, before launching the test.
 
 ###How to build and depoly
+Like all regular JSystem projects, you first need to build the dependencies and then the tests project itself by calling `mvn clean install`.
+
+To run the tests from a JSystem runner, switch to this project by selecting "File" -> "Switch Project" -> browse and secelt the "jsystem-perfecto-tests" directory.
