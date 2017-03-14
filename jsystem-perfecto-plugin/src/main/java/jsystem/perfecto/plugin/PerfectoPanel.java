@@ -285,22 +285,25 @@ public class PerfectoPanel extends javax.swing.JPanel {
 		}
 	}
 
-	private void printProcessOutput(Process process, String processName) {
+	private void printProcessOutput(final Process process, final String processName) {
 
-		new Thread(() -> {
-			try {
-				BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
-				String line;
-				while ((line = in.readLine()) != null) {
-					System.out.println("*** [" + processName + "]: " + line);
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				try {
+					BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
+					String line;
+					while ((line = in.readLine()) != null) {
+						System.out.println("*** [" + processName + "]: " + line);
+					}
+					process.waitFor();
+					in.close();
 				}
-				process.waitFor();
-				in.close();
+				catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-
 		}).start();
 	}
 

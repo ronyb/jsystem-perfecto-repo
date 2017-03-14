@@ -47,7 +47,7 @@ public class PerfectoMobileBrowser {
 		}
 	}
 	
-	private static void launchPerfectoBrowser(String labOrDashboard) throws InterruptedException {
+	private static void launchPerfectoBrowser(final String labOrDashboard) throws InterruptedException {
 		
 		display = new Display();
 		shell = new Shell(display);
