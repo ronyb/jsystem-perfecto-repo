@@ -1,4 +1,4 @@
-#jsystem-perfecto-repo
+# jsystem-perfecto-repo
 
 This repository consists of the following Java Maven projects:
 * ***perfecto-mobile-browser*** - A standalone Java application, implementing a web browser which allows interacting with Perfecto Mobile's "Mobile Cloud" web application views - "Perfecto Lab" and "Perfecto Dashboard". The application also receives the  generated **executionId** after logging-in to the Perfecto app, stores it in memorey and serves it to other applications via a TCP socket.
@@ -6,10 +6,10 @@ This repository consists of the following Java Maven projects:
 * ***jsystem-perfecto-infra*** - A JSystem SO project, containing the needed dependencies and classes for interacting with the Perfecto cloud and with the **perfecto-mobile-browser** application, to read the current **executionId**.
 * ***jsystem-perfecto-tests*** - A sample JSystem-Perfecto tests project. The project depends on the **jsystem-perfecto-infra** project, and contains the `JSystemPerfectoTest` class, responsible for intializing the communication with the Perfecto cloud.
 
-#perfecto-mobile-browser
+# perfecto-mobile-browser
 ![Perfecto Mobile "Lab" and "Dashboard" browsers](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/perfecto_browsers.png)
 
-###Description and use
+### Description and use
 
 This is a standalone Java GUI application, based on the [SWT library](https://www.eclipse.org/swt/). The application can be used on its own, or it could be launched from Perfecto's tab inside JSystem runner.
 
@@ -26,18 +26,18 @@ If you wish to launch the "Perfecto Dashboard" view, you need to add the `dashba
 `java -jar perfecto-mobile-browser-<version>.jar dashboard` - will launch the "Perfecto Dashboard" view.<br>
 `java -jar perfecto-mobile-browser-<version>.jar lab` - will launch the "Perfecto Lab" view.
 
-####perfecto.properties
+#### perfecto.properties
 The application depends on the `perfecto.properties` file which should be located inside the same directory as the JAR file.
 The `perfecto.properties` file is used to configure the URL of the Perfecto Cloud and the username and password which would be used by the application to perform automatic log-in inside the web page, by invoking the `doExternalLogin` JavaScript function on the client-side.
 
-####Reading the executionId
+#### Reading the executionId
 The core feature of the application is to communicate with the client-side JavaScript code of the Perfecto application. The application receives and stores the **executionId** that's created after logging-in to "Perfecto Lab". The executionId is stored in memory, and can later be queried by other applications, e.g., code running from a JSystem test.
 
 When launched, the application runs a TCP server, listening on port 3456. The server supprts the following requests from clients:<br>
 `getExecutionId` - returns the current executionId<br>
 `getHost` - returns the the current Perfeco cloud host, as was configured in the `perfecto.properties` file<br>
 
-###How to build and deploy
+### How to build and deploy
 This is a Maven project. To build it, run the following command line: `mvn clean install` from the project root directory. After a successful build, all artifacts will be found inside the `target` directory at the project's root.
 
 The important artifacts are:
@@ -48,10 +48,10 @@ The important artifacts are:
 
 To make the **perfecto-mobile-browser** available from the JSystem Perfecto Mobile plugin tab, copy all the artifacts listed above into a new directory named `perfecto`, and put this directory at the root of your JSystem runner.
 
-#jsystem-perfecto-plugin
+# jsystem-perfecto-plugin
 ![JSystem Perfecto Mobile Tab](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/jsystem_perfecto_tab.png)
 
-###Description and use
+### Description and use
 
 This is a plugin for the JSystem runner, which allows adding the "Perfecto Mobile" tab to the JSystem runner GUI. Once installed, the Perfecto tab allows the user to configure the Perfecto Cloud properties (host, username, password), and to launch the **perfecto-mobile-browser** in "Lab" and/or "Dashboard" views, by clicking the appropreate button.
 
@@ -59,7 +59,7 @@ Before launching the **perfecto-mobile-browser**, the application validates that
 
 When clicking the "Open Perfecto Lab" and "Open Perfecto Dashboard" buttons, the application first checks if there isn't an instance of one of these already running. The plugin doesn't allow launching more than one instance of "Perfecto Lab" and "Perfecto Dashboard" each.
 
-###How to build and depoly
+### How to build and depoly
 
 ***Noet:*** This plugin will function properly only if the **perfecto** directory with the **perfecto-mobile-browser** was placed at the root of your JSystem runner (see "How to build and deploy" for **pefecto-mobile-browser** above).
 
@@ -82,16 +82,16 @@ To enable the "Perfecto Mobile" tab inside JSystem, follow these steps, inside y
 
 ![How to add the "Perfecto Mobile" tab to JSystem] (https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/add_jsystem_perfecto_tab.png)
 
-#jsystem-perfecto-infra
+# jsystem-perfecto-infra
 
-###Description and use
+### Description and use
 This is a JSystem SO project, created from the "jsystem-so-archetype" Maven archetype. This project contains all the dependencies and infrastructure classes needed for interacting with Perfecto Mobile's services from within a JSystem test class.
 
 The most important classes of the projects which you should get familiar with are:
 * `PerfectoLabConnectorClient` - This is a simple TCP socket client with two static methods which allow interacting with the currently running "Perfeco Lab" **perfecto-mobile-browser** instance, to query for the current **executionId** and current perfecto host, using the `getExecutionId` and `getHost` methods respectively.
 * `PerfectoLabUtils` - This class has convenience methods for interacting with Perfecto Mobile. The most important method that you should know about is `setExecutionIdCapability` which actually communicates with the "Perfecto Lab" browser to get the current executionId, and sets it inside the `DesiredCapabilities` object.
 
-###How to build and depoly
+### How to build and depoly
 When creating a JSystem tests project that should interact with Perfecto Mobile's services, you need to add **jsystem-perfecto-infra** as a dependency in the tests project's `pom.xml` file:
 ```xml
 <dependency>
@@ -102,9 +102,9 @@ When creating a JSystem tests project that should interact with Perfecto Mobile'
 ```
 To make the dependency available for the tests project, you must build it by calling `mvn clean install` before trying to build your tests project.
 
-#jsystem-perfecto-tests
+# jsystem-perfecto-tests
 
-###Description and use
+### Description and use
 This is a sample JSystem Tests project, created from the "jsystem-tests-archetype" Maven archetype. This project depends on the **jsystem-perfecto-infra** project, and exemplifies how to implement a JSystem test which initiates the `DesiredCapabilities` with the current **executionId** which is read from the currently runnning "Perfecto Lab" **perfecto-mobile-browser**.
 
 The main functionality can be seen in the `JSystemPerfectoTest` abstract test class, which initiates all Perfecto Mobile parameters in the `@Before` method.
@@ -113,7 +113,7 @@ The actual test demonstration is done in the `JSystemPerfectoTestDemo` class whi
 
 ***Note:*** The JSystem test demonstrated in in this class requires for a running instance of the "Perfecto Lab" **perfecto-mobile-browser** application, before launching the test.
 
-###How to build and depoly
+### How to build and depoly
 Like all regular JSystem projects, you first need to build the dependencies and then the tests project itself by calling `mvn clean install`.
 
 To run the tests from a JSystem runner, switch to this project by selecting "File" -> "Switch Project" -> browse and secelt the "jsystem-perfecto-tests" directory.
