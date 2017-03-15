@@ -80,7 +80,7 @@ To enable the "Perfecto Mobile" tab inside JSystem, follow these steps, inside y
 7. Click "Set" button and then "Save" button
 8. Allow JSystem to restart. After the restart you should see the "Perfecto Mobile" tab.
 
-![How to add the "Perfecto Mobile" tab to JSystem] (https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/add_jsystem_perfecto_tab.png)
+![How to add the "Perfecto Mobile" tab to JSystem](https://github.com/ronyb/jsystem-perfecto-plugin/blob/master/images/add_jsystem_perfecto_tab.png)
 
 # jsystem-perfecto-infra
 
